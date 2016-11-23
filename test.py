@@ -1,2 +1,4 @@
-x = 20
-print(x//60)
+#!/usr/bin/python
+
+
+print([1,2,3,4,5][4])
