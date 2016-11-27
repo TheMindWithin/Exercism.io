@@ -4,6 +4,7 @@
 
 PEP 8 -- Style Guide: https://www.python.org/dev/peps/pep-0008/
 PEP 8 -- Style Guide Checker: https://pypi.python.org/pypi/pep8
+Flyke8 Style Guide Checker: http://flake8.readthedocs.io/en/latest/
 
 Author: Julius Mayer (jmayer@uos.de)
 '''
