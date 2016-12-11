@@ -1,23 +1,40 @@
-#!/usr/bin/env python3
-
-'''RNA transcription exercise'''
+"""Exercism.io's python "Hamming" exercise"""
 
 
-# Another idea?
+# 1st try: scipy [slowest]
+from scipy.spatial.distance import hamming
+
 def distance(dna1, dna2):
-    '''Calculates the Hamming difference between two DNA strands'''
+    """Calculate the Hamming difference between two DNA strands"""
     if len(dna1) is not len(dna2): raise ValueError()
-    return sum(list(dna1)[i] is list(dna2)[i] for i in range(0,len(dna1)))
+    return 0 if len(dna1) == 0 else int(hamming(list(dna1), 
+        list(dna2)) *len(dna1))
 
-# No cmp in Python 3
+
+# 2nd try recursion [slow]
 def distance(dna1, dna2):
-    '''Calculates the Hamming difference between two DNA strands'''
+    """Calculate the Hamming difference between two DNA strands"""
+    if len(dna1) is not len(dna2): raise ValueError()
+    return 0 if len(dna1) == 0 else int(dna1[0] != dna2[0]) \
+        +distance(dna1[1:], dna2[1:])
+
+
+# 3rd try: lambda [fast]
+def distance(dna1, dna2):
+    """Calculate the Hamming difference between two DNA strands"""
+    if len(dna1) is not len(dna2): raise ValueError()
+    return sum(map(lambda base: dna1[base] != dna2[base], range(len(dna1))))
+
+
+# 4th try: cmp [faster], Python 2
+def distance(dna1, dna2):
+    """Calculate the Hamming difference between two DNA strands"""
     if len(dna1) is not len(dna2): raise ValueError()
     return sum(map(abs, map(cmp, dna1, dna2)))
 
-# Lib from scipy
-from scipy.spatial.distance import hamming
+
+# 5th try: for-loop [fastest]
 def distance(dna1, dna2):
-    '''Calculates the Hamming difference between two DNA strands'''
+    """Calculate the Hamming difference between two DNA strands"""
     if len(dna1) is not len(dna2): raise ValueError()
-    return int(hamming(list(dna1), list(dna2))*len(dna1))
+    return sum(dna1[i] != dna2[i] for i in range(len(dna1)))

@@ -1,1 +1,0 @@
-# Exercism.io exercise solutions

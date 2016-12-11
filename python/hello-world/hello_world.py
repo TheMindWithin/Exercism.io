@@ -1,8 +1,13 @@
-#!/usr/bin/env python3
-
-'''Python "Hello World" exercise'''
+"""Exercism.io's python "Hello World" exercise"""
 
 
+# Python 2
 def hello(name='World'):
-    '''Returns a welcoming string'''
+    """Return a welcoming string"""   
+    return 'Hello, %s!' %(name or 'World')
+
+
+# Python 3
+def hello(name='World'):
+    """Return a welcoming string"""
     return f'Hello, {name or "World"}!'
